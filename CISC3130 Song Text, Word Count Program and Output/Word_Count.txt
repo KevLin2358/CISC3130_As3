@@ -33,14 +33,16 @@ public class WordCount {
         // count occurrences
         HashMap<String, Integer> wordCounts = new HashMap<String, Integer>();
         while (input.hasNext()) {
-            String next = input.next().toLowerCase();
+            //lowercase all the strings
+        	String next = input.next().toLowerCase();
+            //remove symbols: ), ?, etc
+            next = next.replaceAll("[-+.^:,\"]","");
             if (!wordCounts.containsKey(next)) {
-
-                // TODO: remove symbols: ), ?, etc
-
-                wordCounts.put(next, 1);
+            	wordCounts.put(next, 1);
+            	
             } else {
-                wordCounts.put(next, wordCounts.get(next) + 1);
+                
+            	wordCounts.put(next, wordCounts.get(next) + 1);
             }
         }
 
